@@ -10,8 +10,8 @@ import io.cucumber.junit.CucumberOptions;
 		
 		features= {"Test Resource/PostvalidationFF/ValidatePostRequest.feature"},
 		glue= {"Postvalidation_SD"},
-		dryRun =false,
-		monochrome=true,
+		//dryRun =false,
+		//monochrome=true,
 		plugin= {"pretty",
 				"html:target/cucumber-htmlreport",
 				"json:target/cucumber-report.json"

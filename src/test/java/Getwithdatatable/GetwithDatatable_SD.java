@@ -14,8 +14,8 @@ public class GetwithDatatable_SD {
 
     Response response; 
     
-    @Given("hit the uri")
-	public void hit_the_uri() {
+    @Given("hit the uri1")
+	public void hit_the_uri1() {
 		response= RestAssured.get("http://demoqa.com/BookStore/v1/Books");
 		System.out.println("got the response");
 	}

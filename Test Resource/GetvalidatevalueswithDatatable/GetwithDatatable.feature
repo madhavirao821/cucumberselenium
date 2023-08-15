@@ -1,7 +1,7 @@
 Feature: validate the get request
 
 Scenario:1. Validate demo QA  running
-Given hit the uri
+Given hit the uri1
 
 #Scenario: 1.Validate demo QA  running
 #Given hit the uri
@@ -12,7 +12,7 @@ Given hit the uri
 #Then validate value for "books[1].title" is "Learning JavaScript Design Patterns"
 
 Scenario:2. Validate demo QA  running
-Given hit the uri
+Given hit the uri1
 Then validate value for below table
 
           |books[0].title               |Git Pocket Guide|
