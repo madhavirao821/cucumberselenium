@@ -12,6 +12,7 @@ import org.junit.Assert;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
@@ -20,6 +21,7 @@ import io.restassured.specification.RequestSpecification;
 public class PostValidation {
    
 	Response response =null;
+	String id =null;
 	
 	@Given("post the data to create user")
 	public void post_the_data_to_create_user() {
@@ -45,7 +47,7 @@ public class PostValidation {
 	@Then("validate ID created for user with non null value")
 	public void validate_id_created_for_user_with_non_null_value() {
       // response.then().assertThat().body("id", notnullValue());
-        String id= response.body().jsonPath().getString("id");
+        id= response.body().jsonPath().getString("id");
         Assert.assertTrue(!id.equals(null));
 	}
 	@Then("validate id created for user with non zero value")
@@ -135,6 +137,24 @@ public class PostValidation {
 	}
 
 	
-	
+     @When("delete the user from system")
+     public void delete_the_user_from_system() {
+    	 System.out.println("====deleting user===="+id);
+    	 response = (Response) RestAssured .given()
+  				.relaxedHTTPSValidation()
+  				.accept(ContentType.JSON)
+  				.delete("https://reqres.in/api/users"+id);
+    	 
+     }
+
+     @Then("validate user deleted from system")
+     public void validate_user_deleted_from_system() {
+    	 
+    	 Assert.assertTrue(true);
+         
+     }
+
+
+
 	
 }
